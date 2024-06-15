@@ -8,4 +8,9 @@ RUN npm ci
 
 COPY . /frontend
 
+RUN chown -R node:node ./node_modules
+RUN chmod -R 775 ./node_modules
+
+USER node
+
 CMD ["npm", "run", "dev"]
